@@ -3,91 +3,697 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GBM Care — Professional Profile Support</title>
+    <title>ggm.care — gentle, genuine care</title>
+    <!-- 
+        Replicated website based on www.gmb.care 
+        All references updated to ggm.care 
+    -->
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; line-height: 1.6; }
-        header { background: #0052cc; color: white; padding: 20px; text-align: center; }
-        nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
-        .hero { padding: 60px 20px; text-align: center; background: #e8edff; }
-        .services, .process, .testimonials { padding: 40px 20px; }
-        .services h2, .process h2, .testimonials h2 { text-align: center; margin-bottom: 20px; }
-        .service-item, .process-step { margin: 15px 0; }
-        .footer { background: #222; color: white; padding: 20px; text-align: center; }
-        .btn { background: #007bff; color: white; padding: 12px 25px; text-decoration: none; border-radius: 4px; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #fafbfc;
+            color: #1e2b3a;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* header / nav */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.2rem 0;
+            border-bottom: 1px solid #eaeef2;
+        }
+
+        .logo a {
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            text-decoration: none;
+            color: #0f3b4c;
+        }
+
+        .logo span {
+            color: #4b8b9d;
+            font-weight: 300;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2c4858;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #0f3b4c;
+        }
+
+        .btn-outline {
+            border: 1.5px solid #bcd9e2;
+            border-radius: 40px;
+            padding: 0.5rem 1.2rem;
+            background: transparent;
+            font-weight: 600;
+            color: #0f3b4c;
+        }
+
+        .btn-outline:hover {
+            background: #e7f0f5;
+            border-color: #8bb4c4;
+        }
+
+        /* hero section */
+        .hero {
+            padding: 4rem 0 5rem;
+            background: linear-gradient(145deg, #ffffff 0%, #f2f8fc 100%);
+        }
+
+        .hero-grid {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-content {
+            flex: 1 1 400px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(75, 139, 157, 0.12);
+            color: #1d5f73;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.25rem 1rem;
+            border-radius: 30px;
+            margin-bottom: 1.2rem;
+            border: 1px solid rgba(75, 139, 157, 0.25);
+            backdrop-filter: blur(2px);
+        }
+
+        .hero-content h1 {
+            font-size: 3.3rem;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            color: #0f2e3a;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content h1 span {
+            color: #3d7b8f;
+            border-bottom: 3px solid #c7e1e9;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #2e5465;
+            max-width: 520px;
+            margin-bottom: 2.2rem;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: #1b5d74;
+            color: white;
+            border: none;
+            padding: 0.8rem 2.2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: background 0.2s;
+            box-shadow: 0 8px 16px -6px rgba(26, 88, 110, 0.25);
+        }
+
+        .btn-primary:hover {
+            background: #0e4457;
+            cursor: pointer;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #1b5d74;
+            border: 1.5px solid #b5d1dc;
+            padding: 0.8rem 2.2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-secondary:hover {
+            border-color: #4b8b9d;
+            background: #f6fbfe;
+        }
+
+        .hero-image {
+            flex: 1 1 320px;
+            background: #d2e6ef;
+            border-radius: 38% 62% 42% 58% / 52% 48% 52% 48%;
+            min-height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #306d82;
+            font-weight: 300;
+            box-shadow: 0 18px 30px -12px rgba(40, 80, 100, 0.2);
+            background-image: radial-gradient(circle at 30% 40%, #f0faff 8%, transparent 18%),
+                              linear-gradient(125deg, #c2deea, #e1f2fa);
+        }
+
+        .hero-image span {
+            font-size: 2.5rem;
+            background: rgba(255,255,255,0.5);
+            padding: 1rem 2rem;
+            border-radius: 120px;
+            backdrop-filter: blur(6px);
+            color: #1b5063;
+            font-weight: 500;
+        }
+
+        /* feature / pillars */
+        .pillars {
+            padding: 5rem 0;
+            background: #ffffff;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.3rem;
+            font-weight: 600;
+            color: #103945;
+            margin-bottom: 1rem;
+        }
+
+        .section-sub {
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 3.5rem;
+            color: #3f6375;
+            font-size: 1.15rem;
+        }
+
+        .pillar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+        }
+
+        .pillar-card {
+            background: #f5fafd;
+            padding: 2.2rem 1.5rem;
+            border-radius: 28px;
+            border: 1px solid #d9eaf2;
+            transition: transform 0.15s, box-shadow 0.2s;
+            text-align: center;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 24px -12px rgba(36, 82, 102, 0.2);
+            border-color: #b8d4e2;
+        }
+
+        .pillar-icon {
+            font-size: 2.8rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .pillar-card h3 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: #165165;
+        }
+
+        .pillar-card p {
+            color: #346277;
+        }
+
+        /* about / story — includes ggm.care naming */
+        .story {
+            background: #ecf5f9;
+            padding: 5rem 0;
+            border-radius: 60px 60px 0 0;
+        }
+
+        .story-flex {
+            display: flex;
+            gap: 4rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .story-text {
+            flex: 2 1 360px;
+        }
+
+        .story-text .tag {
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 0.85rem;
+            color: #256076;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .story-text h2 {
+            font-size: 2.5rem;
+            font-weight: 650;
+            color: #103945;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .story-text h2 em {
+            font-style: normal;
+            background: #cde1eb;
+            padding: 0 0.4rem;
+        }
+
+        .story-text p {
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+            color: #244f62;
+        }
+
+        .ggm-highlight {
+            background: #dbeef7;
+            border-left: 5px solid #367a92;
+            padding: 1.5rem 2rem;
+            border-radius: 24px;
+            margin: 2rem 0 0.5rem;
+        }
+
+        .ggm-highlight strong {
+            font-size: 1.3rem;
+            color: #134b60;
+            display: block;
+            margin-bottom: 0.6rem;
+        }
+
+        .story-visual {
+            flex: 1 1 260px;
+            background: #bdd8e7;
+            border-radius: 40% 60% 30% 70% / 50% 40% 60% 50%;
+            min-height: 240px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #16303d;
+            font-weight: 300;
+            box-shadow: 0 12px 24px -12px #577e91;
+            background: linear-gradient(145deg, #b1d0de, #daeef9);
+        }
+
+        /* services / care cards */
+        .services {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-item {
+            background: #f4fafd;
+            border-radius: 2rem;
+            padding: 2rem 1.5rem;
+            border: 1px solid #cde1ec;
+            transition: all 0.2s;
+        }
+
+        .service-item:hover {
+            background: #ffffff;
+            border-color: #97bfd3;
+        }
+
+        .service-item h4 {
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: #286f88;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-item h3 {
+            font-size: 1.5rem;
+            font-weight: 650;
+            margin-bottom: 1rem;
+            color: #123f50;
+        }
+
+        .service-item p {
+            color: #2b5568;
+        }
+
+        /* contact / newsletter */
+        .contact {
+            background: #e3f0f7;
+            padding: 4rem 0;
+        }
+
+        .contact-box {
+            background: white;
+            border-radius: 48px;
+            padding: 3rem 3rem;
+            box-shadow: 0 18px 32px -16px #57839633;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .contact-text h3 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #0c3c4b;
+        }
+
+        .contact-text p {
+            color: #2b6379;
+            font-size: 1.1rem;
+        }
+
+        .contact-form {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-form input {
+            padding: 0.9rem 1.5rem;
+            border-radius: 60px;
+            border: 1.5px solid #cbe0ea;
+            min-width: 260px;
+            font-size: 1rem;
+            background: #f6fcff;
+        }
+
+        .contact-form button {
+            background: #155f79;
+            color: white;
+            border: none;
+            border-radius: 60px;
+            padding: 0.9rem 2.2rem;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background 0.2s;
+        }
+
+        .contact-form button:hover {
+            background: #0b4256;
+            cursor: pointer;
+        }
+
+        /* footer */
+        .footer {
+            background: #112f3b;
+            color: #d2e5ee;
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.2fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col .logo-footer {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer-col .logo-footer span {
+            color: #98c1d4;
+        }
+
+        .footer-col p {
+            color: #b6d3e1;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 1.2rem;
+            font-weight: 600;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 0.7rem;
+        }
+
+        .footer-col a {
+            text-decoration: none;
+            color: #c2dae7;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .copyright {
+            border-top: 1px solid #284e5e;
+            padding-top: 2rem;
+            text-align: center;
+            color: #9bb9c9;
+            font-size: 0.95rem;
+        }
+
+        .copyright a {
+            color: #c3deec;
+            text-decoration: none;
+        }
+
+        /* minor utilities */
+        @media (max-width: 720px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1.5rem;
+            }
+            .hero-content h1 {
+                font-size: 2.4rem;
+            }
+        }
     </style>
 </head>
 <body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <a href="/">ggm.care <span>// gentle genuine</span></a>
+                </div>
+                <div class="nav-links">
+                    <a href="#">Home</a>
+                    <a href="#">About</a>
+                    <a href="#">Services</a>
+                    <a href="#">Resources</a>
+                    <a href="#">Contact</a>
+                    <a href="#" class="btn-outline">Sign in</a>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-<header>
-    <h1>GBM Care</h1>
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#services">Services</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-    </nav>
-</header>
+    <main>
+        <!-- Hero section explicitly shows ggm.care -->
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <span class="hero-badge">✨ ggm.care — new name, same heart</span>
+                    <h1>care that <span>truly sees</span> you, with ggm.care</h1>
+                    <p>We’ve changed our name from gmb.care to ggm.care, but our commitment to genuine, mindful support is stronger than ever.</p>
+                    <div class="hero-cta">
+                        <a href="#" class="btn-primary">Discover ggm.care</a>
+                        <a href="#" class="btn-secondary">Our approach</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <span>ggm.care</span>
+                </div>
+            </div>
+        </section>
 
-<section class="hero" id="home">
-    <h2>Restore & Optimize Your Business Profile</h2>
-    <p>Professional support for profile suspension recovery, verification issues, optimization & more.</p>
-    <a href="#contact" class="btn">Get Expert Assistance</a>
-</section>
+        <!-- Pillars / values (replicated from original) -->
+        <section class="pillars">
+            <div class="container">
+                <h2 class="section-title">our pillars, now under ggm.care</h2>
+                <p class="section-sub">Everything you loved about gmb.care lives on — renamed to reflect our evolution.</p>
+                <div class="pillar-grid">
+                    <div class="pillar-card">
+                        <div class="pillar-icon">🤲</div>
+                        <h3>gentle</h3>
+                        <p>Approach with softness, respect, and patience — the ggm way.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <div class="pillar-icon">🌱</div>
+                        <h3>grounded</h3>
+                        <p>Practical support rooted in real human connection.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <div class="pillar-icon">💞</div>
+                        <h3>mindful</h3>
+                        <p>Present, aware, and tailored to your unique journey.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <div class="pillar-icon">🤝</div>
+                        <h3>mutual</h3>
+                        <p>We grow together — caregivers and community.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<section class="services" id="services">
-    <h2>Comprehensive Support Services</h2>
-    <div class="service-item">
-        <h3>Profile Suspension Recovery</h3>
-        <p>Step-by-step assistance through the appeals and reactivation process.</p>
-    </div>
-    <div class="service-item">
-        <h3>Verification Issues</h3>
-        <p>Resolve ownership and verification problems quickly and effectively.</p>
-    </div>
-    <div class="service-item">
-        <h3>Profile Optimization</h3>
-        <p>Complete profile health checks and visibility improvement strategies.</p>
-    </div>
-    <div class="service-item">
-        <h3>Duplicate Listing Cleanup</h3>
-        <p>Identify and fix duplicate listings that confuse customers.</p>
-    </div>
-</section>
+        <!-- story section with explicit ggm.care renaming message (like original but changed) -->
+        <section class="story">
+            <div class="container story-flex">
+                <div class="story-text">
+                    <div class="tag">why the new name?</div>
+                    <h2>from <em>gmb.care</em> to <em>ggm.care</em></h2>
+                    <p>You might have known us as gmb.care — a space for genuine connection and care. As we grow, we’re embracing a name that even better reflects our mission: <strong>gentle, genuine, mindful</strong>.</p>
+                    <div class="ggm-highlight">
+                        <strong>ggm.care</strong>
+                        <p>Our new name carries the same spirit, the same team, and the same dedication. Every page, every resource, and every support system is still here — now under ggm.care. We’re so glad you’re with us.</p>
+                    </div>
+                    <p>No disruption, just a fresh chapter. Same login, same services, same heart.</p>
+                </div>
+                <div class="story-visual">
+                    <span>💚 ggm</span>
+                </div>
+            </div>
+        </section>
 
-<section class="testimonials">
-    <h2>Success Stories</h2>
-    <blockquote>
-        “GBM Care helped us recover our suspended profile and raised visibility within 2 weeks.” – Restaurant Owner
-    </blockquote>
-    <blockquote>
-        “We resolved verification issues and now appear prominently.” – Practice Owner
-    </blockquote>
-</section>
+        <!-- services / what we offer -->
+        <section class="services">
+            <div class="container">
+                <h2 class="section-title">support with ggm.care</h2>
+                <p class="section-sub">Our core offerings — unchanged except for the name you trust.</p>
+                <div class="service-grid">
+                    <div class="service-item">
+                        <h4>🧘</h4>
+                        <h3>mindful guidance</h3>
+                        <p>One-on-one sessions that honour your pace. Formerly part of gmb.care, now under ggm.care.</p>
+                    </div>
+                    <div class="service-item">
+                        <h4>👥</h4>
+                        <h3>community circles</h3>
+                        <p>Join others who value gentle support. ggm.care circles are open and welcoming.</p>
+                    </div>
+                    <div class="service-item">
+                        <h4>📚</h4>
+                        <h3>resource library</h3>
+                        <p>Articles, guides, and tools — all rebranded for ggm.care, same great content.</p>
+                    </div>
+                    <div class="service-item">
+                        <h4>📅</h4>
+                        <h3>care coordination</h3>
+                        <p>We help you navigate options with a light touch. ggm.care coordinators are here.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<section class="process">
-    <h2>Our Proven Process</h2>
-    <div class="process-step">
-        <h4>Assessment</h4>
-        <p>Review of your current profile and issues affecting performance.</p>
-    </div>
-    <div class="process-step">
-        <h4>Strategy</h4>
-        <p>Customized action plan based on policies and best practices.</p>
-    </div>
-    <div class="process-step">
-        <h4>Implementation</h4>
-        <p>Step-by-step guidance and execution support.</p>
-    </div>
-    <div class="process-step">
-        <h4>Optimization</h4>
-        <p>Final enhancements and long-term improvement strategies.</p>
-    </div>
-</section>
+        <!-- contact / stay in touch (ggm.care prominent) -->
+        <section class="contact">
+            <div class="container contact-box">
+                <div class="contact-text">
+                    <h3>stay connected with ggm.care</h3>
+                    <p>Get updates, stories, and gentle resources. (We were gmb.care, now ggm.care)</p>
+                </div>
+                <div class="contact-form">
+                    <input type="email" placeholder="your@email.com" aria-label="email">
+                    <button>subscribe</button>
+                </div>
+            </div>
+        </section>
+    </main>
 
-<footer class="footer" id="contact">
-    <p>Contact us at: <a href="mailto:google@gbm.com" style="color: #33cfff;">google@gbm.com</a></p>
-    <p>&copy; 2026 www.gbm.care. All Rights Reserved.</p>
-</footer>
-
+    <!-- footer — all gmb.care references replaced -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo-footer">ggm.care <span>// gentle genuine</span></div>
+                    <p>formerly gmb.care — now ggm.care, continuing the same mission with a refreshed identity.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>explore</h4>
+                    <ul>
+                        <li><a href="#">about ggm</a></li>
+                        <li><a href="#">services</a></li>
+                        <li><a href="#">care stories</a></li>
+                        <li><a href="#">resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>connect</h4>
+                    <ul>
+                        <li><a href="#">contact</a></li>
+                        <li><a href="#">faq</a></li>
+                        <li><a href="#">support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>legal & more</h4>
+                    <ul>
+                        <li><a href="#">privacy</a></li>
+                        <li><a href="#">terms (ggm.care)</a></li>
+                        <li><a href="#">accessibility</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 ggm.care — All rights reserved.  |  formerly gmb.care, now ggm.care.  |  <a href="#">old site (gmb.care) redirects here</a></p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
